@@ -1,7 +1,12 @@
 <?php 
 
-header("Cache-Control: no-cache, must-revalidate");
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+define('BASE_PATH', __DIR__ . '/');
+
+// Define a URL base para links HTML
+define('BASE_URL', '/landingpages/'); 
+
+// Exemplo simples para garantir que a configuração funciona
+
 
 ?>
 
@@ -20,6 +25,9 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         <div class="espacodaheaderkkkkkkk"></div>
 
         <?php include 'partes_inicio/cabecalho_inicio.php'; ?>
+
+        
+
 
         <?php include 'partes_inicio/parte_hero.php'; ?>
 

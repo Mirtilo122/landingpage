@@ -312,8 +312,14 @@ footer p{
 
 .header2{
   width: 100vw;
-  height: 5vh;
+  height: 15vh;
   background-color: var(--cor-quaternária);
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: end;
 }
 
 .nav-link{
