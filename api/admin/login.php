@@ -42,26 +42,23 @@ if(isset($_POST["email"]) || isset($_POST["password"])) {
 
         if($quantidade > 0) {
 
-            // Fetch do resultado (dado que a consulta retornou ao menos um usuário)
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // Verifica se a sessão não foi iniciada e a inicia
             if(!isset($_SESSION)){
                 session_start();
             }
 
-            // Armazena os dados do usuário na sessão
             $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
-
-            // Redireciona para a página do painel
+            $_SESSION['usuario'] = $usuario['usuario'];
             header("Location: painel.php");
 
         } else {
-            // Caso não encontre o usuário
             echo "Falha na Autenticação! E-mail ou Senha incorretos";
         }
     }
+
+    var_dump($_SESSION);
+    exit;
 }
 
 ?>

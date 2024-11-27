@@ -17,3 +17,10 @@ CREATE TABLE usuarios (
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(25) NOT NULL
 )
+
+CREATE TABLE fotos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    imagem VARCHAR(255) NOT NULL,
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    visivel ENUM('sim', 'nao') DEFAULT 'sim'
+);

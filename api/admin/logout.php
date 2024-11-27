@@ -10,7 +10,7 @@ if (!defined('BASE_URL')) {
 
 
 
-$linkParaInicio = BASE_URL . 'index.php';
+$linkParaInicio = BASE_URL . 'admin/login.php';
 
 require_once __DIR__ . '/../conexao.php';
 

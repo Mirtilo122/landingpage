@@ -1,34 +1,42 @@
+<?php
+
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '../');
+}
+
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/landingpages/');
+}
+
+require_once __DIR__ . '/../conexao.php';
+
+$linkParaHeader = $_SERVER['DOCUMENT_ROOT'] . '/landingpages/partes_essenciais/header.php';
+$linkParaCss = BASE_URL . '/css/main.css';
+
+// Selecionar apenas as fotos visíveis
+$sql = "SELECT * FROM fotos WHERE visivel = 'sim' ORDER BY data DESC";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$fotos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="imagens/fav.png" type="image/png">
-    <title>Layout Padrão</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/Main.css">
-    <script src="js/script.js"></script>
+    <title>Galeria de Fotos</title>
+    <link rel="stylesheet" href="<?php echo $linkParaCss; ?>">
 </head>
 <body>
-    
-    <main>
-        <div class="espacodaheaderkkkkkkk"></div>
-        <div class="titulos" id="pesquisas">
-            <div class="titulo_destaque">
-                <h1>GALERIA</h1>
-                <div class="barras_de_titulo">
-                    <div class="barra1"></div>
-                    <div class="barra2"></div>
-                </div>
+    <div class="gallery">
+        <?php foreach ($fotos as $foto): ?>
+            <div class="gallery-item">
+                <img src="uploads/<?php echo htmlspecialchars($foto['imagem']); ?>" alt="Foto <?php echo $foto['id']; ?>">
             </div>
-        </div>
-    </main>
-       
-    <?php include 'partes_essenciais/footer.php'; ?>
+        <?php endforeach; ?>
+    </div>
+    <?php include($linkParaHeader); ?>
 
-    <?php include 'partes_essenciais/header.php'; ?>
-
-    
 </body>
 </html>

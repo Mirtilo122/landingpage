@@ -1,201 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(184, 184, 184);
-    margin: 0px;
-}
-
-.bloco{
-    width: 40%;
-    height: 90%;
-    background-color: rgb(0, 0, 0);
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    align-items: center;
-    overflow: hidden;
-}
-
-.imag{
-    width: 100%;
-    height: 375px;
-
-}
-
-img{
-    width: 100%;
-}
-
-h1{
-    color: white;
-    font-family: Orbitron;
-
-}
-
-.login{
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    font-family: Orbitron;
-    padding-left: 45px;
-}
-
-button{
-    width: 150px;
-    height: 50px;
-    margin: 15px;
-    background-color: rgb(2, 238, 218);
-    border-radius: 5px;
-    border: solid 1px;
-}
-
-input{
-    width: 200px;
-    height: 20px;
-    border-radius: 5px;
-    border: solid 1px;
-}
-
-/* Reseta estilos padrão */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Estilo do corpo da página */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-/* Estilo do contêiner principal */
-.admin-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Estilo do cabeçalho */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    color: #007BFF;
-}
-
-/* Estilo dos cards */
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-/* Estilo dos botões de ação */
-.actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.action-btn {
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.action-btn:hover {
-    background-color: #0056b3;
-}
-
-.action-btn:focus {
-    outline: none;
-}
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-  --cor-principal: #3a3a3a;
-  --cor-secundaria: #ffffff;
-  --cor-terciaria: #6e2ce7;
-  --cor-quaternária: #414141;
-  --cor-seis: #0ABFBC;
-  --cor-sete: #13747D;
-  --fonte-primaria: Inter;
-  --fonte-secundaria: Futura;
+--cor-principal: #3a3a3a;
+--cor-secundaria: #ffffff;
+--cor-terciaria: #6e2ce7;
+--cor-quaternária: #414141;
+--cor-seis: #0ABFBC;
+--cor-sete: #13747D;
+--fonte-primaria: Inter;
+--fonte-secundaria: Futura;
 }
 
 a{
-  text-decoration: none;
+text-decoration: none;
 }
 
 body {
-  margin: 0;
-  border: none;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  max-width: 100vw;
-  overflow-x: hidden; /* Esconde a rolagem horizontal */
-  overflow-y: auto; /* Permite a rolagem vertical */
+margin: 0;
+border: none;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+max-width: 100vw;
+overflow: hidden;
+align-items: center;
 }
 
-main{
-  width: 100vw;
-  min-height: 100vh;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
+
 
 h1{
-  font-family: var(--fonte-primaria);
+font-family: var(--fonte-primaria);
 }
 
 
@@ -204,28 +38,188 @@ h1{
 /* Cores */
 
 body{
-  background-color: var(--cor-secundaria);
+background-color: var(--cor-secundaria);
 }
 
 header{    
-  background-color: var(--cor-principal);
+background-color: var(--cor-principal);
 }
 
 header a{
-  color: var(--cor-secundaria);
+color: var(--cor-secundaria);
 }
 .nome_pagina {
-  color: var(--cor-secundaria);
-  font-family: var(--fonte-primaria);
+color: var(--cor-secundaria);
+font-family: var(--fonte-primaria);
 }
 
 .barra{
-  background-color: var(--cor-secundaria);
+background-color: var(--cor-secundaria);
 }
 
 .logotipo svg{
-  color: var(--cor-secundaria);
+color: var(--cor-secundaria);
 }
+
+
+
+
+
+
+.login{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: Orbitron;
+  padding-left: 45px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Estilo do contêiner principal */
+.admin-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(150, 150, 150);
+  border-radius: 8px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main{
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  }
+
+
+
+
+/* Estilo dos cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  width: 18vw;
+  height: 15vw;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: end;
+  text-align: start;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card_title{
+  width: 100%;
+  height: 50%;
+  justify-self: start;
+  display: flex;
+  justify-content: start;
+}
+
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Estilo dos botões de ação */
+.actions {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.action-btn {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: var(--cor-quaternária);
+  color: var(--cor-secundaria);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: var(--cor-terciaria);
+}
+
+.action-btn:focus {
+  outline: none;
+}
+
+
+
+
+
+/* Modal */
+.modal {
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.9);
+align-items: center;
+justify-content: center;
+}
+
+.modal-content {
+max-width: 80%;
+max-height: 80%;
+margin: auto;
+display: block;
+}
+
+.close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 35px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+color: #bbb;
+text-decoration: none;
+}
+
+
 
 
 
@@ -242,107 +236,136 @@ header a{
 /* Header */
 
 header {
-    width: 100%;
-    height: 10vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: fixed;
-    z-index: 3;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  z-index: 3;
 }
 
 
 
 .barra{
-  width: 1px;
-  height: 8vh;
+width: 1px;
+height: 8vh;
 }
 
 
 
 .logotipo{
-  width: 10vh;
-  height: 10vh;
+width: 10vh;
+height: 10vh;
 }
 
 .logotipo a{    
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .logotipo svg{
-  width: 50%;
-  height: 50%;
+width: 50%;
+height: 50%;
 }
 
 
 
 .nome_pagina {
-  width: 20vw;
-  height: 100%;
-  display: flex;
-  padding-top: 0.9%;
-  padding-left: 2%;
+width: 40vw;
+height: 100%;
+display: flex;
+padding-top: 0.9%;
+padding-left: 2%;
 }
 
 .titulo{
-  font-size: 180%;  
-  font-family: var(--fonte-primaria);
-  font-weight: lighter;
+font-size: 180%;  
+font-family: var(--fonte-primaria);
+font-weight: lighter;
 }
 
 
 .acesso{
-  width: 40vw;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
+width: 20vw;
+height: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+gap: 2vw;
+padding-left: 2vw;
+padding-right: 2vw;
 }
 
 .acesso svg{
-  width: 4vh;
-  height: 4vh;
+width: 4vh;
+height: 4vh;
 }
 
+
 .container-fluid{
-  width: 20vw;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;  
+width: 20vw;
+height: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;  
 }
 
 .form-control{
-  height: 50%;
+height: 50%;
 }
 
 .config{
-  width: 5vw;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 5vw;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .config svg{  
-  width: 4vh;
-  height: 4vh;
+width: 4vh;
+height: 4vh;
 }
 
 svg:hover{
-  color: var(--cor-terciaria);
+color: var(--cor-terciaria);
 }
 
 .espacodaheaderkkkkkkk{
-  width: 100%;
-  height: 10vh;
+width: 100%;
+height: 10vh;
 }
+
+/* Fim Header */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

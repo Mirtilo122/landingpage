@@ -1,18 +1,14 @@
 <?php
 
-define('BASE_PATH', __DIR__ . '/');
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '../../');
+}
 
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/landingpages/');
+}
 
-define('BASE_URL', '/landingpages/'); 
-
-require_once __DIR__ . '/../conexao.php';
-
-$linkParaConexao = BASE_URL . 'conexao.php';
-
-
-
-require 'conexao.php';
-
+require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'conexao.php';
 
 
 $titulo = $_POST['titulo'];
