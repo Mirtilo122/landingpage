@@ -1,7 +1,5 @@
 <?php
 
-
-
 if (!defined('BASE_PATH')) {
     define('BASE_PATH', __DIR__ . '../');
 }
@@ -11,6 +9,32 @@ if (!defined('BASE_URL')) {
 }
 
 require_once __DIR__ . '/../conexao.php';
+
+
+try {
+
+    $stmt = $pdo->query("SELECT COUNT(*) AS total FROM usuarios");
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+   if ($result['total'] == 0) {
+        // Insere o usuário administrador caso a tabela esteja vazia
+        $senha = 'admin'; 
+        $sql = "INSERT INTO usuarios (usuario, email, senha) VALUES (:usuario, :email, :senha)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':usuario' => 'Administrador',
+            ':email' => 'admin',
+            ':senha' => $senha
+        ]);
+    }
+} catch (PDOException $e) {
+    echo "Erro na conexão ou consulta: " . $e->getMessage();
+}
+
+
+
+
+
 
 if(isset($_POST["email"]) || isset($_POST["password"])) {
 

@@ -60,7 +60,7 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     
                     <div class="actions">
-                        <button class="action-btn" onclick="location.href='admin_evemtos/gerenciar_eventos.php'">Acessar</button>
+                        <button class="action-btn" onclick="location.href='admin_eventos/gerenciar_eventos.php'">Acessar</button>
                     </div>
                 </div>
 
@@ -71,8 +71,8 @@ if (!isset($_SESSION['id'])) {
                     </div>
                 
                     <div class="actions">
-                        <button class="action-btn">Adicionar Nova Pesquisa</button>
-                        <button class="action-btn">Editar Pesquisas</button>
+                        <button class="action-btn" onclick="location.href='admin_pesquisas/nova_pesquisa'">Adicionar Nova Pesquisa</button>
+                        <button class="action-btn" onclick="location.href='admin_pesquisas/gerenciar_pesquisas.php'">Editar Pesquisas</button>
                     </div>
                 </div>
 
@@ -83,8 +83,8 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     
                     <div class="actions">
-                        <button class="action-btn">Adicionar Documentos</button>
-                        <button class="action-btn">Editar Documentos</button>
+                        <button class="action-btn" onclick="location.href='admin_documentos/inserir_documento.php'">Adicionar Documentos</button>
+                        <button class="action-btn" onclick="location.href='admin_documentos/gerenciar_documentacao.php'">Editar Documentos</button>
                     </div>
                 </div>
 
@@ -95,8 +95,8 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     
                     <div class="actions">
-                        <button class="action-btn" onclick="location.href='admin_galeria/gerenciar_fotos'">Adicionar Imagem</button>
-                        <button class="action-btn">Gerenciar Imagens</button>
+                        <button class="action-btn" onclick="location.href='admin_galeria/inserir_fotos'">Adicionar Imagem</button>
+                        <button class="action-btn" onclick="location.href='admin_galeria/gerenciar_fotos'">Gerenciar Imagens</button>
                     </div>
                 </div>
 
@@ -107,8 +107,8 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     
                     <div class="actions">
-                        <button class="action-btn" onclick="location.href='admin_galeria/gerenciar_fotos'">Adicionar Usuário</button>
-                        <button class="action-btn">Gerenciar Usuários</button>
+                        <button class="action-btn" onclick="location.href='outros/adicionar_users'">Adicionar Usuário</button>
+                        <button class="action-btn" onclick="location.href='outros/gerenciar_users'">Gerenciar Usuários</button>
                     </div>
                 </div>
 
@@ -120,7 +120,7 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     
                     <div class="actions">
-                        <button class="action-btn">Editar Informações do Rodapé</button>
+                        <button class="action-btn" onclick="location.href='outros/editar_rodape'">Editar Informações do Rodapé</button>
                     </div>
                 </div>
 
@@ -130,16 +130,12 @@ if (!isset($_SESSION['id'])) {
                         <h2>Outras Configurações</h2>
                     </div>
                     <div class="actions">
-                        <button class="action-btn">Acessar</button>
+                        <button class="action-btn" onclick="location.href='outros/outras_config'">Acessar</button>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-
-    <p>
-        <a href="logout.php">Sair</a>
-    </p>
 
     <?php include($linkParaHeader); ?>
 </body>
