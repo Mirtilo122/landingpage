@@ -1,35 +1,64 @@
 <?php
-include("conexao.php");
 
-if(isset($_POST["email"]) || isset( $_POST["password"])) {
 
+
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '../');
+}
+
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/landingpages/');
+}
+
+require_once __DIR__ . '/../conexao.php';
+
+if(isset($_POST["email"]) || isset($_POST["password"])) {
+
+    // Verificação se o campo de email e senha não estão vazios
     if(strlen($_POST["email"]) == 0) {
         echo "Preencha seu E-mail";
     } else if(strlen($_POST["senha"]) == 0) {
         echo "Preencha sua Senha";
     } else {
-        $email = $mysqli->real_escape_string($_POST["email"]);
-        $senha = $mysqli->real_escape_string($_POST["senha"]);
+        // Aqui usamos PDO para proteger contra SQL Injection
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
 
-        $sql_code = "SELECT * FROM usuários WHERE email = '$email' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+        // Consultando no banco de dados com uma query preparada
+        $sql_code = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
+        
+        // Prepara a query
+        $stmt = $pdo->prepare($sql_code);
+        
+        // Bind dos parâmetros para evitar SQL Injection
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
 
-        $quantidade = $sql_query->num_rows;
+        // Executa a consulta
+        $stmt->execute();
+
+        // Verifica se encontrou algum resultado
+        $quantidade = $stmt->rowCount();
 
         if($quantidade > 0) {
 
-            $usuario = $sql_query->fetch_assoc();
+            // Fetch do resultado (dado que a consulta retornou ao menos um usuário)
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            // Verifica se a sessão não foi iniciada e a inicia
             if(!isset($_SESSION)){
                 session_start();
             }
 
+            // Armazena os dados do usuário na sessão
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
 
+            // Redireciona para a página do painel
             header("Location: painel.php");
 
         } else {
+            // Caso não encontre o usuário
             echo "Falha na Autenticação! E-mail ou Senha incorretos";
         }
     }
@@ -46,8 +75,8 @@ if(isset($_POST["email"]) || isset( $_POST["password"])) {
 </head>
 <body>
     <div class="bloco"> 
-        <h1>FUTURE AUTOMOBILISMO</h1>
-        <div class="imag"><img src="Imagens/retrogear.jpg" alt="Logo"></div>
+        <h1>GERENCIADOR</h1>
+        <div class="imag"><img src="css/fasipe.jpg" alt="Logo"></div>
         <div class="login">
             <h2>Acesse sua Conta</h2>
             <form action="" method="POST">

@@ -1,5 +1,19 @@
 <?php
+
+define('BASE_PATH', __DIR__ . '/');
+
+
+define('BASE_URL', '/landingpages/'); 
+
+require_once __DIR__ . '/../conexao.php';
+
+$linkParaConexao = BASE_URL . 'conexao.php';
+
+
+
 require 'conexao.php';
+
+
 
 $titulo = $_POST['titulo'];
 $resumo = $_POST['resumo'];

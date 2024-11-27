@@ -1,5 +1,14 @@
 <?php
 
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '../');
+}
+
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/landingpages/');
+}
+
+
 $linkParaInicio = BASE_URL . 'index.php';
 $linkParaNews = BASE_URL . 'noticias/noticias.php';
 

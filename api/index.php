@@ -1,9 +1,13 @@
 <?php 
 
-define('BASE_PATH', __DIR__ . '/');
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '../');
+}
 
-// Define a URL base para links HTML
-define('BASE_URL', '/landingpages/'); 
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/landingpages/');
+}
+
 
 // Exemplo simples para garantir que a configuração funciona
 
@@ -24,10 +28,7 @@ define('BASE_URL', '/landingpages/');
     <main>
         <div class="espacodaheaderkkkkkkk"></div>
 
-        <?php include 'partes_inicio/cabecalho_inicio.php'; ?>
-
-        
-
+        <?php include 'partes_inicio/cabecalho_inicio.php'; ?> 
 
         <?php include 'partes_inicio/parte_hero.php'; ?>
 
@@ -38,7 +39,7 @@ define('BASE_URL', '/landingpages/');
         <?php include 'partes_inicio/parte_carrossel_noticias.php'; ?>
 
         <?php include 'partes_inicio/parte_noticias.php'; ?>
-
+        
         <?php include 'partes_inicio/parte_carrossel_eventos.php'; ?>
 
         <?php include 'partes_inicio/parte_pesquisa.php'; ?>

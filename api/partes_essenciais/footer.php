@@ -1,3 +1,15 @@
+<?php
+
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '../');
+}
+
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/landingpages/');
+}
+
+?>
+
 <footer>
         <div class="rodape">
             <div class="info_rodape"><p>Contato: (66) 99999-9999 teste@gmail.com </p>

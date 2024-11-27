@@ -1,5 +1,14 @@
 <?php
-require 'conexao.php';
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '../');
+}
+
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/landingpages/');
+}
+
+
+require_once __DIR__ . '/../conexao.php';
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM noticias WHERE id = :id";
@@ -39,13 +48,13 @@ function exibirImagem($imagem) {
 // Verificar qual modelo usar
 switch ($modelo) {
     case 1:
-        include 'modelo1.php';
+        include 'modelos/modelo1.php';
         break;
     case 2:
-        include 'modelo2.php';
+        include 'modelos/modelo2.php';
         break;
     case 3:
-        include 'modelo3.php';
+        include 'modelos/modelo3.php';
         break;
     default:
         echo "<p>Modelo não encontrado.</p>";
