@@ -9,14 +9,7 @@ if (!defined('BASE_URL')) {
 }
 
 
-if (!isset($_SESSION)) {
-    session_start();
-}
 
-if (!isset($_SESSION['id'])) {
-    header("Location: login.php");
-    exit;
-}
 
 
 
@@ -44,7 +37,7 @@ $linkParaGaleria = BASE_URL . 'admin/admin_galeria/gerenciar_fotos.php';
         <div class="barra"></div>
 
         <div class="nome_pagina">
-                <h1 class="titulo">Bem Vindo ao Painel, <?php echo $_SESSION['usuario']; ?></h1>
+                <h1 class="titulo">Gerenciador de Notícias</h1>
         </div>
 
         <div class="acesso">

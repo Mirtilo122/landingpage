@@ -1,15 +1,26 @@
 <?php 
 
 if (!defined('BASE_PATH')) {
-    define('BASE_PATH', __DIR__ . '../');
+    define('BASE_PATH', __DIR__ . '/');
 }
 
 if (!defined('BASE_URL')) {
     define('BASE_URL', '/landingpages/');
 }
 
+require_once 'conexao.php';
 
-// Exemplo simples para garantir que a configuração funciona
+$sql = "SELECT * FROM noticias WHERE destaque = 1 ORDER BY id DESC LIMIT 3";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$noticiasDestacadas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$sql = "SELECT * FROM noticias WHERE destaque = 0 ORDER BY id DESC LIMIT 3";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$ultimasNoticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 
 
 ?>
@@ -35,10 +46,18 @@ if (!defined('BASE_URL')) {
         <?php include 'partes_inicio/parte_video.php'; ?>
 
         <?php include 'partes_inicio/parte_cta.php'; ?>
+        
+        <?php
+            if (count($noticiasDestacadas) > 0) {
+                include 'partes_inicio/parte_carrossel_noticias.php';
+            }
 
-        <?php include 'partes_inicio/parte_carrossel_noticias.php'; ?>
+            
+            if (count($ultimasNoticias) > 2) {
+                include 'partes_inicio/parte_noticias.php';
+            }
+            ?>
 
-        <?php include 'partes_inicio/parte_noticias.php'; ?>
         
         <?php include 'partes_inicio/parte_carrossel_eventos.php'; ?>
 

@@ -83,7 +83,7 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     
                     <div class="actions">
-                        <button class="action-btn" onclick="location.href='admin_documentos/inserir_documento.php'">Adicionar Documentos</button>
+                        <button class="action-btn" onclick="location.href='admin_documentos/adicionar_documento.php'">Adicionar Documentos</button>
                         <button class="action-btn" onclick="location.href='admin_documentos/gerenciar_documentacao.php'">Editar Documentos</button>
                     </div>
                 </div>

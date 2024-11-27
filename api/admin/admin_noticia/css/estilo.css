@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.imagens img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.noticia-modelo1 {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.quadro-compartilhar {
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.imagens-auxiliares img {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+}
+
+.noticia-modelo2 {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo-duas-colunas {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.coluna-esquerda {
+    width: 30%;
+    padding-right: 10px;
+    border-right: 1px solid #ddd;
+}
+
+.coluna-direita {
+    width: 65%;
+    padding-left: 10px;
+}
+
+.coluna-esquerda img {
+    display: block;
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+.noticia-modelo3 {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.imagem-incorporada {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.imagens-auxiliares {
+    margin-top: 20px;
+}
+
+.imagens-auxiliares img {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+}
+
+.noticia-resumo {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.noticia-resumo h2 {
+    margin: 0 0 10px;
+}
+
+.noticia-resumo p {
+    margin: 0;
+    color: #666;
+}

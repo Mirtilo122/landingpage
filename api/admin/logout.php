@@ -20,4 +20,8 @@ if(!isset($_SESSION)){
 
 session_destroy();
 
-echo $linkParaInicio;
+?>
+
+<html>
+    <a href="<?php echo $linkParaInicio; ?>">Voltar</a>
+</html>

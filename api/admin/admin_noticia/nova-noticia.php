@@ -56,6 +56,10 @@ $linkParaCss = "../css/main.css";
                 <label for="imagens_auxiliares">Imagens Auxiliares (pode selecionar várias):</label>
                 <input type="file" id="imagens_auxiliares" name="imagens_auxiliares[]" accept="image/*" multiple><br>
 
+                <label for="destaque">Destaque:</label>
+                <input type="checkbox" id="destaque" name="destaque" value="1">
+
+
                 <input type="submit" value="Salvar Notícia">
             </div>
             <div id="desenvolvimento" class="hidden">
