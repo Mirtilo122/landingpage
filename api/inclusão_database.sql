@@ -42,3 +42,22 @@ INSERT INTO documentos (nome, root, data, visivel)
 VALUES ('Grade Curricular do Curso de ADS', 'uploads/674779bba9b059.93400561.pdf', '2024-11-27 16:57:47', 1);
 
 
+CREATE TABLE fotos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    imagem VARCHAR(255) NOT NULL,
+    visivel ENUM('sim', 'nao') DEFAULT 'sim',
+    data DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE eventos (
+    id INT AUTO_INCREMENT PRIMARY KEY,        -- Identificador único do evento
+    titulo VARCHAR(255) NOT NULL,              -- Título do evento
+    imagem VARCHAR(255) NOT NULL,              -- Caminho da imagem (ou URL)
+    descricao TEXT NOT NULL,                   -- Descrição do evento
+    link_inscricao VARCHAR(255),               -- Link para inscrição no evento
+    link_mais_informacoes VARCHAR(255),        -- Link para mais informações sobre o evento
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Data e hora de criação do evento
+    data_exclusao TIMESTAMP NULL DEFAULT NULL, -- Data para exclusão automática, caso tenha
+    visivel BOOLEAN DEFAULT 1                 -- Visibilidade do evento (1 = visível, 0 = oculto)
+);
+

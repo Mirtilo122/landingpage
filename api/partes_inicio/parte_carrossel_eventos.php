@@ -10,7 +10,7 @@
         <h1>Ver Mais</h1>
         <button type="button" class="btn btn-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
             </svg>
         </button>
     </div>
@@ -19,51 +19,45 @@
 <div class="carrossel_eventos">
     <div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <?php
+
+            $linkParaUploadsEventos = BASE_URL . 'admin/admin_eventos/uploads';
+
+            $sql = "SELECT id, titulo, descricao, imagem, link_inscricao, link_mais_informacoes FROM eventos";
+            $stmt = $pdo->query($sql);
+            $totalEventos = $stmt->rowCount();  // Contar o número de eventos
+            $active = true; 
+            $index = 0;
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '<button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="' . $index . '" class="' . ($active ? 'active' : '') . '" aria-current="true" aria-label="Slide ' . ($index + 1) . '"></button>';
+                $active = false;  
+                $index++;
+            }
+            ?>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-            <div class="imagem_evento" style="background: no-repeat url(imagens/petra.jpg);">
-            <div class="overlay"></div>
-                    <div class="texto_bloco_evento">
-                        <h5>CONCIPE 2024</h5>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae magni deleniti ea nobis sequi harum voluptatum expedita modi.</p>
-                    </div>
-                    <div class="encaminhamentos">
-                        <div class="botao_saiba_mais"><p>Saiba Mais</p></div>
-                        <div class="botao_inscricao"><p>Inscreva-se</p></div>
-                    </div>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <div class="imagem_evento"  style="background: no-repeat url(imagens/petra.jpg)">
-            <div class="overlay"></div>
-                    <div class="texto_bloco_evento">
-                        <h5>Evento Esportivo</h5>
-                        <p>Venha torcer pelo time da ADS Fasipe, entre para descobrir nossa programação!</p>
-                    </div>
-                    <div class="encaminhamentos">
-                        <div class="botao_saiba_mais"><p>Saiba Mais</p></div>
-                        <div class="botao_inscricao"><p>Inscreva-se</p></div>
-                    </div>
-            </div>
-            </div>
-
-            <div class="carousel-item">
-            <div class="imagem_evento" style="background: no-repeat url(imagens/petra.jpg);">
-            <div class="overlay"></div>
-                    <div class="texto_bloco_evento">
-                        <h5>Evento Festa</h5>
-                        <p>Venha curtir a rave da Faspe! Entre para mais informações.</p>
-                    </div>
-                    <div class="encaminhamentos">
-                        <div class="botao_saiba_mais"><p>Saiba Mais</p></div>
-                        <div class="botao_inscricao"><p>Inscreva-se</p></div>
-                    </div>
-            </div>
-            </div>
+            <?php
+            
+            $stmt->execute();
+            $active = true;
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '<div class="carousel-item ' . ($active ? 'active' : '') . '">';
+                echo '<div class="imagem_evento" style="background: no-repeat url(\'' . $linkParaUploadsEventos . '/' . htmlspecialchars($row['imagem']) . '\');">';
+                echo '<div class="overlay"></div>';
+                echo '<div class="texto_bloco_evento">';
+                echo '<h5>' . htmlspecialchars($row['titulo']) . '</h5>';
+                echo '<p>' . htmlspecialchars($row['descricao']) . '</p>';
+                echo '</div>';
+                echo '<div class="encaminhamentos">';
+                echo '<div class="botao_saiba_mais"><a href="' . htmlspecialchars($row['link_mais_informacoes']) . '"><p>Saiba Mais</p></a></div>';
+                echo '<div class="botao_inscricao"><a href="' . htmlspecialchars($row['link_inscricao']) . '"><p>Inscreva-se</p></a></div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                $active = false;
+            }
+            ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

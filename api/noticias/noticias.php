@@ -26,6 +26,7 @@ $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Notícias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/noticias.css">
     <style>
         .container{
             min-height: 100vh;
@@ -34,14 +35,21 @@ $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <div class="espacodaheaderkkkkkkk"></div>
-    <div class="espacodaheaderkkkkkkk"></div>
     <div class="container">
-        <h1>Notícias Recentes</h1>
+        <div class="titulos" id="noticias-recentes">
+            <div class="titulo_destaque">
+                <h1>Noticias Recentes</h1>
+                <div class="barras_de_titulo">
+                    <div class="barra1"></div>
+                    <div class="barra2"></div>
+                </div>
+            </div>
+        </div>
         <ul>
             <?php foreach ($noticias as $noticia): ?>
                 <li>
                     <a href="noticia.php?id=<?= $noticia['id'] ?>">
-                        <?= htmlspecialchars($noticia['titulo']) ?> - 
+                        <?= htmlspecialchars($noticia['titulo']) ?>  
                         <small><?= $noticia['data_publicacao'] ?></small>
                     </a>
                 </li>

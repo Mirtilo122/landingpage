@@ -8,7 +8,12 @@ if (!defined('BASE_URL')) {
     define('BASE_URL', '/landingpages/');
 }
 
-require_once 'conexao.php';
+require_once BASE_PATH . 'conexao.php';
+
+$sql = "DELETE FROM eventos WHERE data_exclusao IS NOT NULL AND data_exclusao < NOW()";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
 
 $sql = "SELECT * FROM noticias WHERE destaque = 1 ORDER BY id DESC LIMIT 3";
 $stmt = $pdo->prepare($sql);
@@ -20,7 +25,12 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $ultimasNoticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$sql = "SELECT * FROM eventos ORDER BY id DESC LIMIT 3";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$eventosDisponiveis = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$linkParaUploadsEventos = BASE_PATH . 'admin/admin_eventos/uploads';
 
 
 ?>
@@ -45,11 +55,12 @@ $ultimasNoticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <?php include 'partes_inicio/parte_video.php'; ?>
 
-        <?php include 'partes_inicio/parte_cta.php'; ?>
+        <?php // include 'partes_inicio/parte_cta.php'; ?>
         
         <?php
             if (count($noticiasDestacadas) > 0) {
                 include 'partes_inicio/parte_carrossel_noticias.php';
+                ?><div class="espacodaheaderkkkkkkk"></div> <?php
             }
 
             
@@ -59,7 +70,10 @@ $ultimasNoticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
         
-        <?php include 'partes_inicio/parte_carrossel_eventos.php'; ?>
+       <?php
+            if (count($eventosDisponiveis) > 0) {
+                include 'partes_inicio/parte_carrossel_eventos.php';
+            } ?>
 
         <?php include 'partes_inicio/parte_pesquisa.php'; ?>
 

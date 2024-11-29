@@ -19,12 +19,14 @@ $ultimasNoticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $linkParaNews = BASE_URL . 'noticias/noticias.php';
 
 if (count($ultimasNoticias) > 0) {
-    // Exibir as últimas notícias
-    foreach ($ultimasNoticias as $noticia) {
+    ?> <div class="noticias_cards">
+    <?php
+     foreach ($ultimasNoticias as $noticia) {
         $imagem = !empty($noticia['imagem_principal']) ? "data:image/jpeg;base64," . base64_encode($noticia['imagem_principal']) : 'imagens/default.jpg';
         $titulo = htmlspecialchars($noticia['titulo']);
         $resumo = htmlspecialchars($noticia['resumo']);
         ?>
+        
         <div class="bloco_ultimas_noticias">
             <div class="imagem_bloco_ultimas_noticias">
                 <img src="<?php echo $imagem; ?>" alt="<?php echo $titulo; ?>">
@@ -38,5 +40,8 @@ if (count($ultimasNoticias) > 0) {
         </div>
         <?php
     }
+    ?>
+    </div>
+    <?php
 }
 ?>
